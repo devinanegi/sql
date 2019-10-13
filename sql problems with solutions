@@ -1,0 +1,606 @@
+ 
+1- CREATE DATABASE WITH 20 ENTERIES AND LIST OF MENTEES IN ALPHABETICAL ORDER.
+mysql> CREATE DATABASE college;
+Query OK, 1 row affected (0.23 sec)
+
+mysql> USE college
+Database changed
+mysql> CREATE TABLE college_individual(id INT (10)PRIMARY KEY,name VARCHAR (255),email VARCHAR (255),mentor_id INT (10));
+Query OK, 0 rows affected, 2 warnings (1.30 sec)
+
+mysql> INSERT INTO college_individual (id,name,email)
+    -> VALUES('1','Mayank Pathak','mayank@gmail.com');
+Query OK, 1 row affected (0.21 sec)
+
+mysql> INSERT INTO college_individual (id,name,email,mentor_id)
+    -> VALUES('2','Ankit Chaudhary','ankit@outlook.com','1');
+Query OK, 1 row affected (0.12 sec)
+
+mysql> INSERT INTO college_individual (id,name,email)
+    -> VALUES('3','Vijay Saini','vijay@gmail.com');
+
+mysql> INSERT INTO college_individual (id,name,email,mentor_id)
+    -> VALUES('4','Harish Solanki','harish@outlook.com','1');
+Query OK, 1 row affected (0.12 sec)
+
+mysql> INSERT INTO college_individual (id,name,email)
+    -> VALUES('5','Tushar Bohra','tushar@outlook.com');
+Query OK, 1 row affected (0.23 sec)
+
+mysql> INSERT INTO college_individual (id,name,email)
+    -> VALUES('6','Vaibhav Sir','vivek@gmail.com');
+Query OK, 1 row affected (0.15 sec)
+
+mysql> INSERT INTO college_individual (id,name,email,mentor_id)
+    -> VALUES('7','Harry Shukla','harry@outlook.com','2');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> INSERT INTO college_individual (id,name,email,mentor_id)
+    -> VALUES('8','Sejal','sejal@gmail.com','3');
+Query OK, 1 row affected (0.15 sec)
+
+mysql> INSERT INTO college_individual (id,name,email,mentor_id)
+    -> VALUES('9','Mohak Shukla','mohak@outlook.com','2');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO college_individual (id,name,email,mentor_id)
+    -> VALUES('10','Neha Rawat','neha@gmail.com','3');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> INSERT INTO college_individual (id,name,email)
+    -> VALUES('11','Deeksha Negi','deeksha@gmail.com');
+Query OK, 1 row affected (0.21 sec)
+
+mysql> INSERT INTO college_individual (id,name,email,mentor_id)
+    -> VALUES('12','Anushka Sharma','anushka@rediff.com','2');
+Query OK, 1 row affected (0.20 sec)
+
+mysql> INSERT INTO college_individual (id,name,email,mentor_id)
+    -> VALUES('13','Ayush Sharma','Ayush@rediff.com','2');
+Query OK, 1 row affected (0.12 sec)
+
+mysql> INSERT INTO college_individual (id,name,email,mentor_id)
+    -> VALUES('14','Shruti Agarwal','shruti@gmail.com','1');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> INSERT INTO college_individual (id,name,email,mentor_id)
+    -> VALUES('15','Himani','himani@rediff.com','1');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> INSERT INTO college_individual (id,name,email,mentor_id)
+    -> VALUES('16','Ayushi Sharma','ayushi@rediff.com','3');
+Query OK, 1 row affected (0.15 sec)
+
+mysql> INSERT INTO college_individual (id,name,email,mentor_id)
+    -> VALUES('17','Khushi Sharma','khushi@rediff.com','2');
+Query OK, 1 row affected (0.19 sec)
+
+mysql> INSERT INTO college_individual (id,name,email,mentor_id)
+    -> VALUES('18','Tejashwini Chauhan','tejashwini@rediff.com','1');
+Query OK, 1 row affected (0.20 sec)
+
+mysql> INSERT INTO college_individual (id,name,email,mentor_id)
+    -> VALUES('19','Indu Rawat','indu@rediff.com','3');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO college_individual (id,name,email)
+    -> VALUES('20','Vivek Kumar','vivek@gmail.com');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> SELECT name AS mentees
+    -> FROM college_individual
+    -> WHERE mentor_id IS NOT NULL;
++--------------------+
+| mentees            |
++--------------------+
+| Ankit Chaudhary    |
+| Harish Solanki     |
+| Harry Shukla       |
+| Sejal              |
+| Mohak Shukla       |
+| Neha Rawat         |
+| Anushka Sharma     |
+| Ayush Sharma       |
+| Shruti Agarwal     |
+| Himani             |
+| Ayushi Sharma      |
+| Khushi Sharma      |
+| Tejashwini Chauhan |
+| Indu Rawat         |
++--------------------+
+
+
+
+mysql> SELECT name AS mentees
+    -> FROM college_individual
+    -> WHERE mentor_id IS NOT NULL
+    -> ORDER BY name;
++--------------------+
+| mentees            |
++--------------------+
+| Ankit Chaudhary    |
+| Anushka Sharma     |
+| Ayush Sharma       |
+| Ayushi Sharma      |
+| Harish Solanki     |
+| Harry Shukla       |
+| Himani             |
+| Indu Rawat         |
+| Khushi Sharma      |
+| Mohak Shukla       |
+| Neha Rawat         |
+| Sejal              |
+| Shruti Agarwal     |
+| Tejashwini Chauhan |
++--------------------+
+14 rows in set (0.08 sec)
+
+mysql> UPDATE college_individual
+    -> SET mentor_id='5' WHERE name='Ayush';
+Query OK, 0 rows affected (0.07 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> UPDATE college_individual
+    -> SET mentor_id='6' WHERE name='Himani';
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE college_individual
+    -> SET mentor_id='11' WHERE name='Tejashwini';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> UPDATE college_individual
+    -> SET mentor_id='20' WHERE name='Indu Rawat';
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT*
+    -> FROM college_individual;
++----+--------------------+-----------------------+-----------+
+| id | name               | email                 | mentor_id |
++----+--------------------+-----------------------+-----------+
+|  1 | Mayank Pathak      | mayank@gmail.com      |      NULL |
+|  2 | Ankit Chaudhary    | ankit@outlook.com     |         1 |
+|  3 | Vijay Saini        | vijay@gmail.com       |      NULL |
+|  4 | Harish Solanki     | harish@outlook.com    |         1 |
+|  5 | Tushar Bohra       | tushar@outlook.com    |      NULL |
+|  6 | Vaibhav Sir        | vivek@gmail.com       |      NULL |
+|  7 | Harry Shukla       | harry@outlook.com     |         2 |
+|  8 | Sejal              | sejal@gmail.com       |         3 |
+|  9 | Mohak Shukla       | mohak@outlook.com     |         2 |
+| 10 | Neha Rawat         | neha@gmail.com        |         3 |
+| 11 | Deeksha Negi       | deeksha@gmail.com     |      NULL |
+| 12 | Anushka Sharma     | anushka@rediff.com    |         2 |
+| 13 | Ayush Sharma       | Ayush@rediff.com      |         2 |
+| 14 | Shruti Agarwal     | shruti@gmail.com      |         1 |
+| 15 | Himani             | himani@rediff.com     |         6 |
+| 16 | Ayushi Sharma      | ayushi@rediff.com     |         3 |
+| 17 | Khushi Sharma      | khushi@rediff.com     |         2 |
+| 18 | Tejashwini Chauhan | tejashwini@rediff.com |         1 |
+| 19 | Indu Rawat         | indu@rediff.com       |        20 |
+| 20 | Vivek Kumar        | vivek@gmail.com       |      NULL |
++----+--------------------+-----------------------+-----------+
+20 rows in set (0.00 sec)
+
+mysql> UPDATE college_individual
+    -> SET mentor_id='5' WHERE name='Ayush Sharma';
+Query OK, 1 row affected (0.16 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE college_individual
+    -> SET mentor_id='11' WHERE name='Tejashwini Chauhan';
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELCT *
+    -> FROM college_individual;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELCT *
+FROM college_individual' at line 1
+mysql> SELECT *
+    -> FROM college_individual;
++----+--------------------+-----------------------+-----------+
+| id | name               | email                 | mentor_id |
++----+--------------------+-----------------------+-----------+
+|  1 | Mayank Pathak      | mayank@gmail.com      |      NULL |
+|  2 | Ankit Chaudhary    | ankit@outlook.com     |         1 |
+|  3 | Vijay Saini        | vijay@gmail.com       |      NULL |
+|  4 | Harish Solanki     | harish@outlook.com    |         1 |
+|  5 | Tushar Bohra       | tushar@outlook.com    |      NULL |
+|  6 | Vaibhav Sir        | vivek@gmail.com       |      NULL |
+|  7 | Harry Shukla       | harry@outlook.com     |         2 |
+|  8 | Sejal              | sejal@gmail.com       |         3 |
+|  9 | Mohak Shukla       | mohak@outlook.com     |         2 |
+| 10 | Neha Rawat         | neha@gmail.com        |         3 |
+| 11 | Deeksha Negi       | deeksha@gmail.com     |      NULL |
+| 12 | Anushka Sharma     | anushka@rediff.com    |         2 |
+| 13 | Ayush Sharma       | Ayush@rediff.com      |         5 |
+| 14 | Shruti Agarwal     | shruti@gmail.com      |         1 |
+| 15 | Himani             | himani@rediff.com     |         6 |
+| 16 | Ayushi Sharma      | ayushi@rediff.com     |         3 |
+| 17 | Khushi Sharma      | khushi@rediff.com     |         2 |
+| 18 | Tejashwini Chauhan | tejashwini@rediff.com |        11 |
+| 19 | Indu Rawat         | indu@rediff.com       |        20 |
+| 20 | Vivek Kumar        | vivek@gmail.com       |      NULL |
++----+--------------------+-----------------------+-----------+
+20 rows in set (0.00 sec)
+
+mysql> UPDATE college_individual
+    -> SET mentor_id='11' WHERE name='Harry Shukla';
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE college_individual
+    -> SET mentor_id='5' WHERE name='Mohak Shukla';
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE college_individual
+    -> SET mentor_id='5' WHERE name='Anushka Sharma';
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE college_individual
+    -> SET mentor_id='20' WHERE name='Khushi Sharma';
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT *
+    -> FROM college_individual;
++----+--------------------+-----------------------+-----------+
+| id | name               | email                 | mentor_id |
++----+--------------------+-----------------------+-----------+
+|  1 | Mayank Pathak      | mayank@gmail.com      |      NULL |
+|  2 | Ankit Chaudhary    | ankit@outlook.com     |         1 |
+|  3 | Vijay Saini        | vijay@gmail.com       |      NULL |
+|  4 | Harish Solanki     | harish@outlook.com    |         1 |
+|  5 | Tushar Bohra       | tushar@outlook.com    |      NULL |
+|  6 | Vaibhav Sir        | vivek@gmail.com       |      NULL |
+|  7 | Harry Shukla       | harry@outlook.com     |        11 |
+|  8 | Sejal              | sejal@gmail.com       |         3 |
+|  9 | Mohak Shukla       | mohak@outlook.com     |         5 |
+| 10 | Neha Rawat         | neha@gmail.com        |         3 |
+| 11 | Deeksha Negi       | deeksha@gmail.com     |      NULL |
+| 12 | Anushka Sharma     | anushka@rediff.com    |         5 |
+| 13 | Ayush Sharma       | Ayush@rediff.com      |         5 |
+| 14 | Shruti Agarwal     | shruti@gmail.com      |         1 |
+| 15 | Himani             | himani@rediff.com     |         6 |
+| 16 | Ayushi Sharma      | ayushi@rediff.com     |         3 |
+| 17 | Khushi Sharma      | khushi@rediff.com     |        20 |
+| 18 | Tejashwini Chauhan | tejashwini@rediff.com |        11 |
+| 19 | Indu Rawat         | indu@rediff.com       |        20 |
+| 20 | Vivek Kumar        | vivek@gmail.com       |      NULL |
++----+--------------------+-----------------------+-----------+
+20 rows in set (0.00 sec)
+
+mysql> SELECT name
+    -> FROM college_individual
+    -> ;
++--------------------+
+| name               |
++--------------------+
+| Mayank Pathak      |
+| Ankit Chaudhary    |
+| Vijay Saini        |
+| Harish Solanki     |
+| Tushar Bohra       |
+| Vaibhav Sir        |
+| Harry Shukla       |
+| Sejal              |
+| Mohak Shukla       |
+| Neha Rawat         |
+| Deeksha Negi       |
+| Anushka Sharma     |
+| Ayush Sharma       |
+| Shruti Agarwal     |
+| Himani             |
+| Ayushi Sharma      |
+| Khushi Sharma      |
+| Tejashwini Chauhan |
+| Indu Rawat         |
+| Vivek Kumar        |
++--------------------+
+20 rows in set (0.88 sec)
+2-List all mentee’s along with their mentors. 
+
+mysql> SELECT a.name AS mentee,b.name AS mentor
+    -> FROM college_individual a,college_individual b
+    -> WHERE b.mentor_id=a.id;
++---------------+--------------------+
+| mentee        | mentor             |
++---------------+--------------------+
+| Mayank Pathak | Ankit Chaudhary    |
+| Mayank Pathak | Harish Solanki     |
+| Deeksha Negi  | Harry Shukla       |
+| Vijay Saini   | Sejal              |
+| Tushar Bohra  | Mohak Shukla       |
+| Vijay Saini   | Neha Rawat         |
+| Tushar Bohra  | Anushka Sharma     |
+| Tushar Bohra  | Ayush Sharma       |
+| Mayank Pathak | Shruti Agarwal     |
+| Vaibhav Sir   | Himani             |
+| Vijay Saini   | Ayushi Sharma      |
+| Vivek Kumar   | Khushi Sharma      |
+| Deeksha Negi  | Tejashwini Chauhan |
+| Vivek Kumar   | Indu Rawat         |
++---------------+--------------------+
+14 rows in set (0.00 sec)
+
+mysql> SELECT mentor_id AS mentee
+    -> FROM college_individual
+    -> WHERE mentor_id ID NOT NULL AND email REGEXP 'gmail.com';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ID NOT NULL AND email REGEXP 'gmail.com'' at line 3
+
+3- List all mentee’s whose mentor’s are using `@gmail` email domain. 
+mysql> SELECT name AS mentee
+    -> FROM college_individual
+    -> WHERE mentor_id IS NOT NULL AND email REGEXP 'gmail.com';
++----------------+
+| mentee         |
++----------------+
+| Sejal          |
+| Neha Rawat     |
+| Shruti Agarwal |
++----------------+
+3 rows in set (0.00 sec)
+
+mysql> CREATE DATABASE shop;
+Query OK, 1 row affected (0.88 sec)
+
+mysql> USE shop
+Database changed
+mysql> CREATE TABLE customer(id INT (10) AUTO_INCREMENT PRIMARY KEY,first_name VARCHAR (255),last_name VARCHAR (255),email VARCHAR (255),date_of_birth DATETIME );
+Query OK, 0 rows affected, 1 warning (2.49 sec)
+
+mysql> CREATE TABLE seller (id INT (10) AUTO_INCREMENT PRIMARY KEY,name VARCHAR(255),gender VARCHAR(255));
+Query OK, 0 rows affected, 1 warning (1.14 sec)
+
+mysql> CREATE TABLE sales(id INT (10) AUTO_INCREMENT PRIMARY KEY,customer_id VARCHAR (255),seller_id VARCHAR (255),date DATETIME,amount INT (10);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> CREATE TABLE sales(id INT (10) AUTO_INCREMENT PRIMARY KEY,customer_id VARCHAR (255),seller_id VARCHAR (255),date DATETIME,amount INT (10));
+Query OK, 0 rows affected, 2 warnings (1.23 sec)
+
+mysql> INSERT INTO (id,first_name,last_name,email,date_of_birth)
+    -> VALUES('1','Mayank','Pathak','mayank@gmail.com','1988-01-14');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(id,first_name,last_name,email,date_of_birth)
+VALUES('1','Mayank','Pathak','maya' at line 1
+mysql> INSERT INTO customer(id,first_name,last_name,email,date_of_birth)
+    -> VALUES('1','Mayank','Pathak','mayank@gmail.com','1988-01-14');
+Query OK, 1 row affected (0.26 sec)
+
+mysql> INSERT INTO customer(id,first_name,last_name,email,date_of_birth)
+    -> VALUES('2','Ankit','Chaudhary','ankit@outlook.com','1991-12-04');
+Query OK, 1 row affected (0.25 sec)
+
+mysql> INSERT INTO customer(first_name,last_name,email,date_of_birth)
+    -> VALUES('Vijay','Saini','vijay@gmail.com','1967-04-29');
+Query OK, 1 row affected (0.12 sec)
+
+mysql> INSERT INTO customer(first_name,last_name,email,date_of_birth)
+    -> VALUES('Harish','Solanki','harish@outlook.com','1973-07-11');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> SELECT *
+    -> FROM customer;
++----+------------+-----------+--------------------+---------------------+
+| id | first_name | last_name | email              | date_of_birth       |
++----+------------+-----------+--------------------+---------------------+
+|  1 | Mayank     | Pathak    | mayank@gmail.com   | 1988-01-14 00:00:00 |
+|  2 | Ankit      | Chaudhary | ankit@outlook.com  | 1991-12-04 00:00:00 |
+|  3 | Vijay      | Saini     | vijay@gmail.com    | 1967-04-29 00:00:00 |
+|  4 | Harish     | Solanki   | harish@outlook.com | 1973-07-11 00:00:00 |
++----+------------+-----------+--------------------+---------------------+
+4 rows in set (0.06 sec)
+
+mysql> INSERT INTO customer(first_name,last_name,email,date_of_birth)
+    -> VALUES('Devina','Negi','devina@gmail.com','1998-03-28');
+Query OK, 1 row affected (0.17 sec)
+
+mysql> SELECT *
+    -> FROM customer;
++----+------------+-----------+--------------------+---------------------+
+| id | first_name | last_name | email              | date_of_birth       |
++----+------------+-----------+--------------------+---------------------+
+|  1 | Mayank     | Pathak    | mayank@gmail.com   | 1988-01-14 00:00:00 |
+|  2 | Ankit      | Chaudhary | ankit@outlook.com  | 1991-12-04 00:00:00 |
+|  3 | Vijay      | Saini     | vijay@gmail.com    | 1967-04-29 00:00:00 |
+|  4 | Harish     | Solanki   | harish@outlook.com | 1973-07-11 00:00:00 |
+|  5 | Devina     | Negi      | devina@gmail.com   | 1998-03-28 00:00:00 |
++----+------------+-----------+--------------------+---------------------+
+5 rows in set (0.00 sec)
+
+mysql> INSERT INTO seller(id,name,gender)
+    -> VALUES('1','Poooja Pathak','female');
+Query OK, 1 row affected (0.20 sec)
+
+mysql> INSERT INTO seller(id,name,gender)
+    -> VALUES('2','Chandan Chaudhary','male');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO seller(id,name,gender)
+    -> VALUES('3','Saloni Saini','female');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO seller(id,name,gender)
+    -> VALUES('4','Sandeep Solanki','male');
+Query OK, 1 row affected (0.25 sec)
+
+mysql> INSERT INTO seller(id,name,gender)
+    -> VALUES('5','Lalu','male');
+Query OK, 1 row affected (0.16 sec)
+
+mysql> SELECT *
+    -> FROM seller;
++----+-------------------+--------+
+| id | name              | gender |
++----+-------------------+--------+
+|  1 | Poooja Pathak     | female |
+|  2 | Chandan Chaudhary | male   |
+|  3 | Saloni Saini      | female |
+|  4 | Sandeep Solanki   | male   |
+|  5 | Lalu              | male   |
++----+-------------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> INSERT INTO sales(id,customer_id,seller_id,date,amount)
+    -> VALUES('1','3','2017-01-14','2738');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> INSERT INTO sales(id,customer_id,seller_id,date,amount)
+    -> VALUES('1','1','3','2017-01-14','2738');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> INSERT INTO sales(id,customer_id,seller_id,date,amount)
+    -> VALUES('2','1','2','2017-12-04','9341');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO sales(id,customer_id,seller_id,date,amount)
+    -> VALUES('3','3','1','2017-04-29','8239');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO sales(id,customer_id,seller_id,date,amount)
+    -> VALUES('4','4','2','2017-07-11','4752');
+Query OK, 1 row affected (0.17 sec)
+
+mysql> INSERT INTO sales(id,customer_id,seller_id,date,amount)
+    -> VALUES('5','4','2','2017-08-01','4700');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> INSERT INTO sales(id,customer_id,seller_id,date,amount)
+    -> VALUES('6','1','2','2017-12-01','9700');
+Query OK, 1 row affected (0.17 sec)
+
+mysql> INSERT INTO sales(customer_id,seller_id,date,amount)
+    -> VALUES('3','1','2017-11-21','9500');
+Query OK, 1 row affected (0.17 sec)
+
+mysql> INSERT INTO sales(customer_id,seller_id,date,amount)
+    -> VALUES('1','1','2017-01-11','1500');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO sales(customer_id,seller_id,date,amount)
+    -> VALUES('1','2','2017-02-18','200');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> INSERT INTO sales(customer_id,seller_id,date,amount)
+    -> VALUES('3','2','2017-07-18','5000');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> INSERT INTO sales(customer_id,seller_id,date,amount)
+    -> VALUES('2','1','2017-10-03','9000');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO sales(customer_id,seller_id,date,amount)
+    -> VALUES('2','2','2017-10-08','8600');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO sales(customer_id,seller_id,date,amount)
+    -> VALUES('4','2','2017-05-05','7600');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> INSERT INTO sales(customer_id,seller_id,date,amount)
+    -> VALUES('3','4','2017-05-28','2600');
+Query OK, 1 row affected (0.18 sec)
+
+mysql> INSERT INTO sales(customer_id,seller_id,date,amount)
+    -> VALUES('4','4','2017-09-19','8800');
+Query OK, 1 row affected (0.12 sec)
+
+mysql> select *
+    -> from sales;
++----+-------------+-----------+---------------------+--------+
+| id | customer_id | seller_id | date                | amount |
++----+-------------+-----------+---------------------+--------+
+|  1 | 1           | 3         | 2017-01-14 00:00:00 |   2738 |
+|  2 | 1           | 2         | 2017-12-04 00:00:00 |   9341 |
+|  3 | 3           | 1         | 2017-04-29 00:00:00 |   8239 |
+|  4 | 4           | 2         | 2017-07-11 00:00:00 |   4752 |
+|  5 | 4           | 2         | 2017-08-01 00:00:00 |   4700 |
+|  6 | 1           | 2         | 2017-12-01 00:00:00 |   9700 |
+|  7 | 3           | 1         | 2017-11-21 00:00:00 |   9500 |
+|  8 | 1           | 1         | 2017-01-11 00:00:00 |   1500 |
+|  9 | 1           | 2         | 2017-02-18 00:00:00 |    200 |
+| 10 | 3           | 2         | 2017-07-18 00:00:00 |   5000 |
+| 11 | 2           | 1         | 2017-10-03 00:00:00 |   9000 |
+| 12 | 2           | 2         | 2017-10-08 00:00:00 |   8600 |
+| 13 | 4           | 2         | 2017-05-05 00:00:00 |   7600 |
+| 14 | 3           | 4         | 2017-05-28 00:00:00 |   2600 |
+| 15 | 4           | 4         | 2017-09-19 00:00:00 |   8800 |
++----+-------------+-----------+---------------------+--------+
+
+* List all sales with the following info  ○ Customer Name (Name format - ​<lastname> , <firstname>​)  ○ Seller Name  ○ Amount 
+mysql> SELECT c.id, CONCAT(first_name," ",last_name),se.name,sa.amount
+    -> FROM customer c
+    -> JOIN seller se
+    ->  ON c.id=se.id
+    -> JOIN sales sa
+    ->  ON c.id=sa.id
+    -> ORDER BY c.first_name AND sa.amount;
++----+----------------------------------+-------------------+--------+
+| id | CONCAT(first_name," ",last_name) | name              | amount |
++----+----------------------------------+-------------------+--------+
+|  5 | Devina Negi                      | Lalu              |   4700 |
+|  1 | Mayank Pathak                    | Poooja Pathak     |   2738 |
+|  2 | Ankit Chaudhary                  | Chandan Chaudhary |   9341 |
+|  3 | Vijay Saini                      | Saloni Saini      |   8239 |
+|  4 | Harish Solanki                   | Sandeep Solanki   |   4752 |
++----+----------------------------------+-------------------+--------+
+
+The list should be sorted the customer first name and also by the sale amount, in  ascending order. 
+
+
+mysql>     SELECt customer.first_name,sales.amount
+    -> FROM customer,sales
+    -> WHERE customer.id=sales.customer_id
+    -> ORDER By customer.first_name,sales.amount;
++------------+--------+
+| first_name | amount |
++------------+--------+
+| Ankit      |   8600 |
+| Ankit      |   9000 |
+| Harish     |   4700 |
+| Harish     |   4752 |
+| Harish     |   7600 |
+| Harish     |   8800 |
+| Mayank     |    200 |
+| Mayank     |   1500 |
+| Mayank     |   2738 |
+| Mayank     |   9341 |
+| Mayank     |   9700 |
+| Vijay      |   2600 |
+| Vijay      |   5000 |
+| Vijay      |   8239 |
+| Vijay      |   9500 |
++------------+--------+
+
+*- List the customers, with their total sale amount. The list should be ordered by the  total sale amount.
+mysql> SELECT customer.first_name,sum(sales.amount)as totalsaleamount
+    -> FROM sales
+    -> JOIN customer
+    -> ON customer.id=sales.customer_id
+    -> GROUP BY customer.id,customer.first_name
+    -> ORDER BY totalsaleamount;
++------------+-----------------+
+| first_name | totalsaleamount |
++------------+-----------------+
+| Ankit      |           17600 |
+| Mayank     |           23479 |
+| Vijay      |           25339 |
+| Harish     |           25852 |
++------------+-----------------+
+* List all the sales, which were sold by a female to a person who is older than the  age 35
+
+
+mysql> SELECT customer.date_of_birth,seller.gender,sales.amount
+    -> FROM customer
+    -> JOIN seller
+    -> ON customer.id=seller.id
+    -> JOIN sales
+    -> ON customer.id=sales.id
+    -> WHERE seller.gender='female' AND (2019-year(customer.date_of_birth)>35);
++---------------------+--------+--------+
+| date_of_birth       | gender | amount |
++---------------------+--------+--------+
+| 1967-04-29 00:00:00 | female |   8239 |
++---------------------+--------+--------+
+
+
